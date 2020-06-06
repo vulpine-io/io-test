@@ -1,0 +1,71 @@
+= `"io"` Test Utilities
+
+Configurable mock/test implementations of commonly used `io` package interfaces.
+
+== `io.Reader` | `io.ReadCloser`
+
+Using `iotest.ReadCloser` you can mock an instance of `io.Reader` or
+`io.ReadCloser` (or just `io.Closer` if you wanted).
+
+The mock/test struct allows you to configure when/if errors are returned, what
+"written byte" counts are returned, and the contents of the source to read from.
+Additionally, the struct will contain a count of calls to `Read` and `Close`.
+
+.Basic Usage
+[source, go]
+----
+package main
+
+import (
+  "fmt"
+
+  "github.com/vulpine-io/io-test/v1/pkg/iotest"
+)
+
+func main() {
+  reader := new(iotest.ReadCloser)
+  buffer := make([]byte, 10)
+
+  fmt.Println(reader.Read(buffer)) // 10 <nil>
+  fmt.Println(string(buffer))      // abcdefghij
+  fmt.Println(reader.ReadCalls)    // 1
+}
+----
+
+== `io.Writer` | `io.WriteCloser`
+
+Using `iotest.WriteCloser` you can mock an instance of `io.Writer` or
+`io.WriteCloser` (or just `io.Closer` if you wanted).
+
+The mock/test struct allows you to configure when/if errors are returned and
+what "written byte" counts are returned.  Additionally, the struct will contain
+a count of calls to `Write` and `Close` in addition to a slice of all the data
+passed to the `Write` method.
+
+.Basic Usage
+[source, go]
+----
+package main
+
+import (
+  "fmt"
+
+  "github.com/vulpine-io/io-test/v1/pkg/iotest"
+)
+
+func main() {
+  writer := new(iotest.WriteCloser)
+  data := []byte("hey there!")
+
+  fmt.Println(writer.Write(data))          // 10 <nil>
+  fmt.Println(string(writer.WrittenBytes)) // hey there!
+  fmt.Println(writer.WriteCalls)           // 1
+}
+----
+
+== Planned
+
+* `io.ByteScanner`
+* `io.RuneScanner`
+* `io.ByteReader`
+* `io.RuneReader`
