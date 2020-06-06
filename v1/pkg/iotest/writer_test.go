@@ -3,10 +3,11 @@ package iotest_test
 import (
 	"errors"
 	"fmt"
-	"github.com/vulpine-io/io-test/v1/pkg/iotest"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
+
+	"github.com/vulpine-io/io-test/v1/pkg/iotest"
 )
 
 func TestWriteCloser_Write(t *testing.T) {

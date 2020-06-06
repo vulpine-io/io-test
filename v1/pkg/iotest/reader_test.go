@@ -3,10 +3,12 @@ package iotest_test
 import (
 	"errors"
 	"fmt"
-	. "github.com/smartystreets/goconvey/convey"
-	"github.com/vulpine-io/io-test/v1/pkg/iotest"
 	"io"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
+
+	"github.com/vulpine-io/io-test/v1/pkg/iotest"
 )
 
 func TestReadCloser_Read(t *testing.T) {
