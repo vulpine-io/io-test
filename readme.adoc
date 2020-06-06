@@ -1,5 +1,11 @@
 = `"io"` Test Utilities
 
+image:https://travis-ci.org/vulpine-io/io-test.svg?branch=master["Build Status", link="https://travis-ci.org/vulpine-io/io-test"]
+image:https://img.shields.io/github/v/tag/vulpine-io/io-test?label=version[Latest Tag, link=https://github.com/vulpine-io/io-test/tags]
+image:https://img.shields.io/badge/go-docs-ff69b4["Go Doc",https://pkg.go.dev/github.com/vulpine-io/io-test]
+image:https://goreportcard.com/badge/github.com/vulpine-io/io-test["Go Report Card", https://goreportcard.com/report/github.com/vulpine-io/io-test]
+image:https://codecov.io/gh/vulpine-io/io-test/branch/master/graph/badge.svg["Code Coverage", https://codecov.io/gh/vulpine-io/io-test]
+
 Configurable mock/test implementations of commonly used `io` package interfaces.
 
 == `io.Reader` | `io.ReadCloser`
