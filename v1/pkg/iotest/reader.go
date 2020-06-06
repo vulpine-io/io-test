@@ -2,6 +2,8 @@ package iotest
 
 const defaultData = "abcdefghijklmnopqrstuvwxyz"
 
+// ReadCloser is a test implementation of io.ReadCloser that records function
+// calls as well as returning the configured outputs.
 type ReadCloser struct {
 
 	// ReadableData defines the data that will be read into the passed buffer.
@@ -77,6 +79,8 @@ func (r *ReadCloser) Read(p []byte) (n int, err error) {
 	return
 }
 
+// Close increments the ReadCloser.CloseCalls counter and optionally returns the
+// next error in ReadCloser.CloseErrors.
 func (r *ReadCloser) Close() (err error) {
 	if len(r.CloseErrors) > r.CloseCalls {
 		err = r.CloseErrors[r.CloseCalls]

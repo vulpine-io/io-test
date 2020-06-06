@@ -61,6 +61,8 @@ func (w *WriteCloser) Write(p []byte) (n int, err error) {
 	return
 }
 
+// Close increments the WriteCloser.CloseCalls counter and optionally returns
+// the next error in WriteCloser.CloseErrors.
 func (w *WriteCloser) Close() (err error) {
 	if len(w.CloseErrors) > w.CloseCalls {
 		err = w.CloseErrors[w.CloseCalls]
