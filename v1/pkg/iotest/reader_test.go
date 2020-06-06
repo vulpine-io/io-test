@@ -160,7 +160,7 @@ func TestReadCloser_Close(t *testing.T) {
 
 		Convey("with configured errors", func() {
 			test := &iotest.ReadCloser{
-				CloseErrors:  []error{
+				CloseErrors: []error{
 					nil,
 					errors.New("yo"),
 				},
@@ -196,7 +196,7 @@ func ExampleReadCloser_Read_noConf() {
 func ExampleReadCloser_Read_shortReads() {
 	reader := &iotest.ReadCloser{
 		ReadableData: []byte("pastrami"),
-		ReadCounts: []int{2, -1, 5},
+		ReadCounts:   []int{2, -1, 5},
 	}
 	buffer := make([]byte, 10)
 

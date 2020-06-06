@@ -70,4 +70,3 @@ func (w *WriteCloser) Close() (err error) {
 
 	return
 }
-
