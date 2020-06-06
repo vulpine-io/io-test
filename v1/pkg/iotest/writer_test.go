@@ -75,22 +75,22 @@ func TestWriteCloser_Write(t *testing.T) {
 			So(test.WriteCalls, ShouldEqual, 2)
 			So(test.WrittenBytes, ShouldResemble, input)
 
-			a, b = test.Write(input)
+			a, _ = test.Write(input)
 
 			So(a, ShouldEqual, 2)
 			So(test.WriteCalls, ShouldEqual, 3)
 
-			a, b = test.Write(input)
+			a, _ = test.Write(input)
 
 			So(a, ShouldEqual, len(input))
 			So(test.WriteCalls, ShouldEqual, 4)
 
-			a, b = test.Write(input)
+			a, _ = test.Write(input)
 
 			So(a, ShouldEqual, 3)
 			So(test.WriteCalls, ShouldEqual, 5)
 
-			a, b = test.Write(input)
+			a, _ = test.Write(input)
 
 			So(a, ShouldEqual, len(input))
 			So(test.WriteCalls, ShouldEqual, 6)
